@@ -11,7 +11,7 @@ const Title = styled.h1`
 const Index = () => {
   return (
     <Layout>
-      <Title>My page Staging</Title>
+      <Title>My page Master</Title>
     </Layout>
   )
 }
