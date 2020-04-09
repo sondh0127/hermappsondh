@@ -4,11 +4,16 @@ import { Box, Flex } from 'herm'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Main from './Main'
+import { Me } from '@/pages'
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  me: Me
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, me }) => {
   return (
     <Box>
-      <Header></Header>
+      <Header me={me}></Header>
       <Flex>
         <Sidebar></Sidebar>
         <Main>{children}</Main>

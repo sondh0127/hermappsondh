@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app'
-import withApollo from '@/lib/with-apollo'
+import withApollo from '@/lib/withApollo'
 import { ThemeProvider } from 'styled-components'
 
 const theme = {

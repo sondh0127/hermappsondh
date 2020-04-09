@@ -9,8 +9,20 @@ import cookie from 'cookie'
 import fetch from 'isomorphic-unfetch'
 import { NextPage, NextPageContext } from 'next'
 import Head from 'next/head'
+import Router from 'next/router'
 import React from 'react'
-import redirect from './redirect'
+
+const redirect = (context: any, target: string) => {
+  if (context.res) {
+    // server
+    // 303: "See other"
+    context.res.writeHead(303, { Location: target })
+    context.res.end()
+  } else {
+    // In the browser, we just pretend like this never even happened ;)
+    Router.replace(target)
+  }
+}
 
 const parseCookies = (req?: any, options = {}) => {
   return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
@@ -183,7 +195,7 @@ function createApolloClient(initialState = {}, options?: Options) {
 
 function createIsomorphLink() {
   return new HttpLink({
-    uri: 'http://localhost:4000/graphql',
+    uri: `${process.env.BASE_URL}/api/graphql`,
     credentials: 'include',
     fetch,
   })
