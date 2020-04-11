@@ -4,7 +4,7 @@ import util from 'util'
 import request from 'request'
 import config from '@/utils/config'
 
-export default auth0.requireAuthentication(async (req, res) => {
+export default auth0.requireAuthentication(async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const tokenCache = await auth0.tokenCache(req, res)
     const { accessToken } = await tokenCache.getAccessToken({

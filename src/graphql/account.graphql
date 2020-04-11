@@ -1,5 +1,0 @@
-query Account {
-  account {
-    account_name
-  }
-}

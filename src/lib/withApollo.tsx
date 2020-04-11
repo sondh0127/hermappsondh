@@ -12,7 +12,7 @@ export default withApollo(
       link: new HttpLink({
         fetch,
         uri: `${process.env.BASE_URL}/api/graphql`,
-        credentials: 'same-origin',
+        credentials: 'include',
       }),
       cache: new InMemoryCache().restore(initialState || {}),
     })

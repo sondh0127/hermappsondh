@@ -3,7 +3,7 @@ module.exports = {
     {
       'http://localhost:3100/v1/graphql': {
         headers: {
-          Authorization: 'Bearer ' + process.env.AUTH_TOKEN,
+          'x-hasura-admin-secret': process.env.HASURA_GRAPHQL_ADMIN_SECRET,
         },
       },
     },

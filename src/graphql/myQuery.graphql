@@ -1,0 +1,9 @@
+query MyQuery {
+  users {
+    id
+    auth0_id
+    name
+    created_at
+    last_seen
+  }
+}
