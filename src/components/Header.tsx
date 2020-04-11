@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ me }) => {
     <Box backgroundColor="#fafafb" paddingLeft="50px" paddingRight="50px">
       <Flex alignItems="center" justifyContent="space-between" height="50px">
         <LogoIcon></LogoIcon>
-        <User username={me.nickname} sub="Scheduled for 16th December at 09:30 AM">
+        <User username={me} sub="Scheduled for 16th December at 09:30 AM">
           <Flex alignItems="center">
             <Box>
               <img
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ me }) => {
               />
             </Box>
             <Box marginLeft="12px">
-              <User.Username />
+              <span style={{ fontWeight: 'bold' }}>{me.nickname}</span>
             </Box>
             <Box marginLeft="12px">
               <Link href="/api/logout">

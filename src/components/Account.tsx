@@ -14,7 +14,7 @@ const Account: React.FC<AccountProps> = () => {
 
   if (data && data.users.length < 1)
     return <div>Your query was successful but no account was found.</div>
-  return <div>{data && data.users.map((user) => <div>{user.auth0_id}</div>)}</div>
+  return <div>{data && data.users.map((user) => <div key={user.id}>{user.auth0_id}</div>)}</div>
 }
 
 export default Account
